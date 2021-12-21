@@ -14,6 +14,23 @@ def error(title, subtitle=None):
     raise Exception(title)
 
 
+def format_percent(value):
+    if value > 50:
+        arrows = u"↑↑↑"
+    elif value > 10:
+        arrows = u"↑↑"
+    elif value > 0:
+        arrows = u"↑"
+    elif value < -50:
+        arrows = u"↓↓↓"
+    elif value < -10:
+        arrows = u"↓↓"
+    else:
+        arrows = u"↓"
+
+    return u"{value:0.2f}% {arrows}".format(value=value, arrows=arrows)
+
+
 def getenv(key):
     return os.getenv(key, "").upper().replace(" ", "").split(",")
 
@@ -48,10 +65,10 @@ def main(workflow):
             name=currency["name"],
             price=formatted_price,
         )
-        subtitle = "1H={h:0.2f}% | 1D={d:0.2f}% | 1W={w:0.2f}%".format(
-            h=currency["changes"]["h"],
-            d=currency["changes"]["d"],
-            w=currency["changes"]["w"],
+        subtitle = u"[hour: {hour}] • [day: {day}] • [week: {week}]".format(
+            hour=format_percent(currency["changes"]["h"]),
+            day=format_percent(currency["changes"]["d"]),
+            week=format_percent(currency["changes"]["w"]),
         )
 
         workflow.add_item(
