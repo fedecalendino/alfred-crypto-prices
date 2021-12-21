@@ -167,7 +167,7 @@
 	<string>Get current prices for cryptocurrencies 🪙
 
 
-Environment Varibles:
+Environment Variables:
 
 * COINMARKETCAP_API_KEY: API key for https://coinmarketcap.com/api
 * WATCHLIST: Comma separated list of currency symbols</string>
