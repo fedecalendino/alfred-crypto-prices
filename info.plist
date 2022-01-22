@@ -141,7 +141,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>python ./main.py mc</string>
+				<string>python ./main.py marketcap</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -170,7 +170,32 @@
 Environment Variables:
 
 * COINMARKETCAP_API_KEY: API key for https://coinmarketcap.com/api
-* WATCHLIST: Comma separated list of currency symbols</string>
+* WATCHLIST: Comma separated list of coinmarketcap currency slugs
+
+
+
+A mix of slugs and symbols can be used both in the search or in the watchlist:
+
+
+For example:
+
+  * ADA (symbol) / cardano (slug)
+  * ATOM (symbol) / cosmos (slug)
+  * ETC (symbol) / ethereum-classic (slug)
+
+
+The slugs have to the ones used by coinmarketcap.com, and can be found in the url of each currency:
+
+  * https://coinmarketcap.com/currencies/cardano/
+  * https://coinmarketcap.com/currencies/cosmos/
+  * https://coinmarketcap.com/currencies/ethereum-classic/
+
+
+This is to allow search for multiple coins that have the same symbol:
+
+  * STARS / mogul-productions
+  * STARS / stargaze
+  * STARS / starlaunch</string>
 	<key>uidata</key>
 	<dict>
 		<key>1A83937C-233F-47BD-BECF-28AAA78F2794</key>
@@ -200,14 +225,15 @@ Environment Variables:
 		<key>COINMARKETCAP_API_KEY</key>
 		<string>e8c64aba-e2c8-47f1-8861-9b884abafe6e</string>
 		<key>WATCHLIST</key>
-		<string>ADA,CRO,ETH,HOT,ONE</string>
+		<string>cardano,ethereum,ATOM,BTC</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
+		<string>WATCHLIST</string>
 		<string>COINMARKETCAP_API_KEY</string>
 	</array>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/federicocalendino/alfred-crypto-prices</string>
 </dict>

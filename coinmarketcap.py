@@ -1,7 +1,7 @@
 import os
 
+import util
 from workflow import web
-
 
 BASE_URL = "https://pro-api.coinmarketcap.com/v1"
 LISTING_URL = BASE_URL + "/cryptocurrency/listings/latest"
@@ -11,8 +11,8 @@ IMAGE_FILENAME = "/tmp/{id}.png"
 IMAGE_URL = "https://s2.coinmarketcap.com/static/img/coins/128x128/{id}.png"
 
 
-def fetch(currencies):
-    api_key = os.getenv("COINMARKETCAP_API_KEY")
+def fetch(slugs=None, symbols=None):
+    api_key = util.getenv("COINMARKETCAP_API_KEY")
 
     if not api_key:
         raise ValueError("Missing COINMARKETCAP_API_KEY environment variable")
@@ -22,7 +22,23 @@ def fetch(currencies):
         "X-CMC_PRO_API_KEY": api_key,
     }
 
-    if currencies is None:
+    if slugs:
+        url = QUOTES_URL
+
+        params = {
+            "convert": "USD",
+            "skip_invalid": "true",
+            "slug": ",".join(slugs).lower(),
+        }
+    elif symbols:
+        url = QUOTES_URL
+
+        params = {
+            "convert": "USD",
+            "skip_invalid": "true",
+            "symbol": ",".join(symbols).upper(),
+        }
+    elif slugs is None and symbols is None:
         url = LISTING_URL
 
         params = {
@@ -30,13 +46,7 @@ def fetch(currencies):
             "limit": 20,
         }
     else:
-        url = QUOTES_URL
-
-        params = {
-            "convert": "USD",
-            "skip_invalid": "true",
-            "symbol": ",".join(currencies),
-        }
+        return []
 
     response = web.get(url, headers=headers, params=params)
     response = response.json()["data"]
@@ -48,7 +58,7 @@ def fetch(currencies):
     else:
         currencies = response
 
-    for currency in sorted(currencies, key=lambda c: c["cmc_rank"]):
+    for currency in currencies:
         quote = currency["quote"]["USD"]
 
         data.append(

@@ -1,74 +1,93 @@
 # coding=utf-8
 
-import os
 import sys
 
 import coinmarketcap
 from workflow import Workflow
 
-
-def error(title, subtitle=None):
-    if subtitle:
-        title = "{}: {}".format(title, subtitle)
-
-    raise Exception(title)
-
-
-def format_percent(value):
-    if value > 50:
-        arrows = u"↑↑↑"
-    elif value > 10:
-        arrows = u"↑↑"
-    elif value > 0:
-        arrows = u"↑"
-    elif value < -50:
-        arrows = u"↓↓↓"
-    elif value < -10:
-        arrows = u"↓↓"
-    else:
-        arrows = u"↓"
-
-    return u"{value:0.2f}% {arrows}".format(value=value, arrows=arrows)
-
-
-def getenv(key):
-    return os.getenv(key, "").upper().replace(" ", "").split(",")
+import formatters
+import util
 
 
 def get_parameters(workflow):
-    if len(workflow.args) == 0:
-        return getenv("WATCHLIST")
+    args = workflow.args
 
-    if len(workflow.args) == 1:
-        if workflow.args[0] == "mc":
-            return None
+    if len(args) == 0:
+        args = util.getenv("WATCHLIST").split(",")
+    else:
+        args = workflow.args
 
-    return list(map(lambda symbol: symbol.upper(), workflow.args))
+    slugs = []
+    symbols = []
+    invalid = []
+
+    for arg in args:
+        if arg.isupper():
+            symbols.append(arg)
+        elif arg.islower():
+            slugs.append(arg)
+        else:
+            invalid.append(arg)
+
+    return slugs, symbols, invalid
 
 
 def main(workflow):
-    currencies = get_parameters(workflow)
+    if workflow.args == ["marketcap"]:
+        found = coinmarketcap.fetch()
+    else:
+        slugs, symbols, invalid = get_parameters(workflow)
 
-    for currency in coinmarketcap.fetch(currencies):
+        for value in invalid:
+            workflow.add_item(
+                title="{value} has an invalid format.".format(value=value),
+                subtitle="Use '{lower}' to search as a slug or '{upper}' to search as a symbol.".format(
+                    lower=value.lower(),
+                    upper=value.upper()
+                ),
+                valid=False,
+            )
+
+        if invalid:
+            return
+
+        try:
+            by_slug = coinmarketcap.fetch(slugs=slugs)
+            by_symbol = coinmarketcap.fetch(symbols=symbols)
+
+            found = by_slug + by_symbol
+        except:
+            workflow.add_item(
+                title="Something went wrong.",
+                subtitle="Check if you are using valid slugs from coinmarketcap.com.".format(
+                    args=workflow.args,
+                ).replace("u'", "'"),
+                arg="https://coinmarketcap.com/coins/views/all/",
+                valid=True,
+            )
+
+            return
+
+    currencies = {}
+
+    for currency in found:
+        mc = currency["rank"]
+        currencies[mc] = currency
+
+    for rank in sorted(currencies.keys()):
+        currency = currencies[rank]
         price = currency["price"]
-
-        if price < 0.01:
-            formatted_price = "{:0.8f}".format(price)
-        elif price < 1:
-            formatted_price = "{:0.6f}".format(price)
-        else:
-            formatted_price = "{:0.2f}".format(price)
 
         title = "[{rank}. {symbol}] {price} USD".format(
             rank=currency["rank"],
             symbol=currency["symbol"],
             name=currency["name"],
-            price=formatted_price,
+            price=formatters.price(price),
         )
         subtitle = u"[hour: {hour}] • [day: {day}] • [week: {week}]".format(
-            hour=format_percent(currency["changes"]["h"]),
-            day=format_percent(currency["changes"]["d"]),
-            week=format_percent(currency["changes"]["w"]),
+            hour=formatters.percent(currency["changes"]["h"]),
+            day=formatters.percent(currency["changes"]["d"]),
+            week=formatters.percent(currency["changes"]["w"]),
         )
 
         workflow.add_item(
