@@ -2,17 +2,17 @@
 
 def percent(value):
     if value > 50:
-        arrows = u"🟢🟢🟢"
+        arrows = u"🟢 ⬆️️"
     elif value > 10:
-        arrows = u"🟢🟢"
+        arrows = u"🟢 ↗️️"
     elif value > 0:
-        arrows = u"🟢"
+        arrows = u"🟢 ➡️️"
     elif value < -50:
-        arrows = u"🔴🔴🔴"
+        arrows = u"🔴 ⬇️️"
     elif value < -10:
-        arrows = u"🔴🔴"
+        arrows = u"🔴 ↙️️"
     else:
-        arrows = u"🔴"
+        arrows = u"🔴 ⬅️️"
 
     return u"{value:0.2f}% {arrows}".format(value=value, arrows=arrows)
 

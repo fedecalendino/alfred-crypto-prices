@@ -225,7 +225,7 @@ This is to allow search for multiple coins that have the same symbol:
 		<key>COINMARKETCAP_API_KEY</key>
 		<string>e8c64aba-e2c8-47f1-8861-9b884abafe6e</string>
 		<key>WATCHLIST</key>
-		<string>cardano,ethereum,ATOM,BTC</string>
+		<string>ethereum,cardano,cosmos,cronos,juno,osmosis,secret,stargaze</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
@@ -233,7 +233,7 @@ This is to allow search for multiple coins that have the same symbol:
 		<string>COINMARKETCAP_API_KEY</string>
 	</array>
 	<key>version</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/federicocalendino/alfred-crypto-prices</string>
 </dict>
