@@ -1,7 +1,8 @@
 import os
 
 import util
-from workflow import web
+import requests
+
 
 BASE_URL = "https://pro-api.coinmarketcap.com/v1"
 LISTING_URL = BASE_URL + "/cryptocurrency/listings/latest"
@@ -48,7 +49,7 @@ def fetch(slugs=None, symbols=None):
     else:
         return []
 
-    response = web.get(url, headers=headers, params=params)
+    response = requests.get(url, headers=headers, params=params)
     response = response.json()["data"]
 
     data = []
@@ -101,6 +102,6 @@ def get_image(id_):
     url = IMAGE_URL.format(id=id_)
 
     with open(filename, "wb") as f:
-        f.write(web.get(url).content)
+        f.write(requests.get(url).content)
 
     return f.name
