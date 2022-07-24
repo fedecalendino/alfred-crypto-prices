@@ -1,7 +1,9 @@
-### [Alfred Workflow](https://www.alfredapp.com/workflows/) to get current prices for cryptocurrencies 🪙
+## ALFRED-CRYPTO-PRICES
+
+[Alfred Workflow](https://www.alfredapp.com/workflows/) to get current prices for cryptocurrencies 🪙️
 
 
-#### Set Up:
+#### set Up:
 
 ![vars example](./img/screenshots/vars.png)
 
@@ -12,7 +14,7 @@ Environment Variables:
 * **WATCHLIST**: Comma separated list of coinmarketcap currency slugs
 
 
-#### Usage:
+#### usage:
 
 A mix of slugs and symbols can be used both in the search or in the watchlist:
 
