@@ -73,7 +73,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./dist/main $@</string>
+				<string>./dist/main/main $@</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -141,7 +141,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./dist/main marketcap</string>
+				<string>./dist/main/main marketcap</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -229,6 +229,10 @@ This is to allow search for multiple coins that have the same symbol:
 		<key>WATCHLIST</key>
 		<string>cardano,ergo,cosmos,evmos,juno,osmosis,secret,stargaze</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>COINMARKETCAP_API_KEY</string>
+	</array>
 	<key>version</key>
 	<string>1.3.0</string>
 	<key>webaddress</key>
