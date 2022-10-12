@@ -32,7 +32,7 @@ For example:
 
 ![search example](./img/screenshots/search.png)
 
-> note: the search works over the symbol of a coin, not it's id.
+> note: the search works over the symbol of a coin, not its id.
 
 
 ##### • marketcap
