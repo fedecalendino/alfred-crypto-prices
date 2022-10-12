@@ -2,101 +2,57 @@ import sys
 
 from pyflow import Workflow
 
-import coinmarketcap
-import formatters
-
-
-def get_parameters(workflow):
-    args = workflow.args
-
-    if len(args) == 0:
-        args = workflow.env.get("WATCHLIST", "").split(",")
-    else:
-        args = workflow.args
-
-    slugs = []
-    symbols = []
-    invalid = []
-
-    for arg in args:
-        if arg.isupper():
-            symbols.append(arg)
-        elif arg.islower():
-            slugs.append(arg)
-        else:
-            invalid.append(arg)
-
-    return slugs, symbols, invalid
+from src import coingecko, formatters
 
 
 def main(workflow):
-    if workflow.args == ["marketcap"]:
-        found = coinmarketcap.fetch(workflow)
+    sort_by = "rank"
+    sort_dir = "asc"
+
+    args = workflow.args
+
+    if not args:
+        ids = workflow.env.get("FAVORITES", "").split("\n")
+        coins = coingecko.get_coins(*ids)
+        sort_by = "change"
+        sort_dir = "desc"
+    elif args == ["marketcap"]:
+        coins = coingecko.get_coins()
     else:
-        slugs, symbols, invalid = get_parameters(workflow)
+        coins = coingecko.search(set(map(lambda arg: arg.lower().strip(), args)))
 
-        for value in invalid:
-            workflow.new_item(
-                title=f"{value} has an invalid format.",
-                subtitle="Use '{lower}' to search as a slug or '{upper}' to search as a symbol.".format(
-                    lower=value.lower(),
-                    upper=value.upper()
-                ),
-                valid=False,
-            )
+    coins = sorted(
+        coins,
+        key=lambda c: c[sort_by],
+        reverse=sort_dir == "desc",
+    )
 
-        if invalid:
-            return
+    for coin in coins:
+        price = coin["price"]
 
-        try:
-            by_slug = coinmarketcap.fetch(workflow, slugs=slugs)
-            by_symbol = coinmarketcap.fetch(workflow, symbols=symbols)
-
-            found = by_slug + by_symbol
-        except:
-            workflow.new_item(
-                title="Something went wrong.",
-                subtitle="Check if you are using valid slugs from coinmarketcap.com.",
-                arg="https://coinmarketcap.com/coins/views/all/",
-                valid=True,
-            )
-
-            return
-
-    currencies = {}
-
-    for currency in found:
-        mc = currency["rank"]
-        currencies[mc] = currency
-
-    for rank in sorted(currencies.keys()):
-        currency = currencies[rank]
-        price = currency["price"]
-
-        title = "[{rank}. {symbol}] {price} USD".format(
-            rank=currency["rank"],
-            symbol=currency["symbol"],
-            name=currency["name"],
+        title = "{rank} · {symbol} [{price} USD]".format(
+            rank=coin["rank"],
+            symbol=coin["symbol"].upper(),
+            name=coin["name"],
             price=formatters.price(price),
         )
 
-        subtitle = u"[hour: {hour}] • [day: {day}] • [week: {week}]".format(
-            hour=formatters.percent(currency["changes"]["h"]),
-            day=formatters.percent(currency["changes"]["d"]),
-            week=formatters.percent(currency["changes"]["w"]),
+        subtitle = "24h change: {change}".format(
+            change=formatters.percent(coin["change"]),
         )
 
         workflow.new_item(
             title=title,
             subtitle=subtitle,
-            arg=currency["url"],
+            arg=coin["url"],
+            uid=coin["id"],
         ).set_icon_url(
-            url=currency["img"],
-            filename=f"{currency['name']}.png".lower(),
+            url=coin["img"],
+            filename=f"{coin['name']}.png".lower(),
         )
 
 
-if __name__ == u"__main__":
+if __name__ == "__main__":
     wf = Workflow()
     wf.run(main)
     wf.send_feedback()

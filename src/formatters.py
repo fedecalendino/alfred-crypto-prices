@@ -1,5 +1,6 @@
 # coding=utf-8
 
+
 def percent(value):
     if value > 50:
         arrows = "🟢 ⬆️️"
@@ -14,7 +15,7 @@ def percent(value):
     else:
         arrows = "🔴 ⬅️️"
 
-    return u"{value:0.2f}% {arrows}".format(
+    return "{value:0.2f}% {arrows}".format(
         value=value,
         arrows=arrows,
     )

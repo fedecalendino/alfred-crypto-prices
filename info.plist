@@ -167,35 +167,19 @@
 	<string>Get current prices for cryptocurrencies 🪙
 
 
-Environment Variables:
-
-* COINMARKETCAP_API_KEY: API key for https://coinmarketcap.com/api
-* WATCHLIST: Comma separated list of coinmarketcap currency slugs
+---
 
 
+FAVORITES
 
-A mix of slugs and symbols can be used both in the search or in the watchlist:
+The valid ids are on coingecko's urls: https://www.coingecko.com/en/coins/{id}
 
 
 For example:
 
-  * ADA (symbol) / cardano (slug)
-  * ATOM (symbol) / cosmos (slug)
-  * ETC (symbol) / ethereum-classic (slug)
-
-
-The slugs have to the ones used by coinmarketcap.com, and can be found in the url of each currency:
-
-  * https://coinmarketcap.com/currencies/cardano/
-  * https://coinmarketcap.com/currencies/cosmos/
-  * https://coinmarketcap.com/currencies/ethereum-classic/
-
-
-This is to allow search for multiple coins that have the same symbol:
-
-  * STARS / mogul-productions
-  * STARS / stargaze
-  * STARS / starlaunch</string>
+  * ADA: https://www.coingecko.com/en/coins/cardano
+  * ATOM: https://www.coingecko.com/en/coins/cosmos
+  * JUNO: https://www.coingecko.com/en/coins/juno-network</string>
 	<key>uidata</key>
 	<dict>
 		<key>22BF0D5B-26C6-4E46-B6A7-1774D82A4DB3</key>
@@ -221,20 +205,31 @@ This is to allow search for multiple coins that have the same symbol:
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
-	<key>variables</key>
-	<dict>
-		<key>COINMARKETCAP_API_KEY</key>
-		<string>e8c64aba-e2c8-47f1-8861-9b884abafe6e</string>
-		<key>WATCHLIST</key>
-		<string>cardano,ergo,cosmos,evmos,juno,osmosis,secret,stargaze</string>
-	</dict>
-	<key>variablesdontexport</key>
 	<array>
-		<string>COINMARKETCAP_API_KEY</string>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>bitcoin,ethereum,cardano</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+				<key>verticalsize</key>
+				<integer>6</integer>
+			</dict>
+			<key>description</key>
+			<string>List of coingecko identifiers for coins (one per line).</string>
+			<key>label</key>
+			<string>FAVORITES</string>
+			<key>type</key>
+			<string>textarea</string>
+			<key>variable</key>
+			<string>FAVORITES</string>
+		</dict>
 	</array>
 	<key>version</key>
-	<string>1.4.0</string>
+	<string>1.6.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/fedecalendino/alfred-crypto-prices</string>
 </dict>
