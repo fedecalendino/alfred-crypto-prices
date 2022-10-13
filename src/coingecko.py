@@ -16,8 +16,11 @@ def get_coins(*ids):
             "img": coin["image"],
             "url": f'https://www.coingecko.com/en/coins/{coin["id"]}',
             "price": coin["current_price"],
-            "change": coin["price_change_percentage_24h"],
+            "price_change": coin["price_change_percentage_24h"],
+            "atl": coin["atl"],
+            "atl_change": coin["atl_change_percentage"],
             "ath": coin["ath"],
+            "ath_change": coin["ath_change_percentage"],
         }
 
 

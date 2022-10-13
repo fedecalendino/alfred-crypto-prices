@@ -14,7 +14,7 @@ def main(workflow):
     if not args:
         ids = workflow.env.get("FAVORITES", "").split("\n")
         coins = coingecko.get_coins(*ids)
-        sort_by = "change"
+        sort_by = "price_change"
         sort_dir = "desc"
     elif args == ["marketcap"]:
         coins = coingecko.get_coins()
@@ -28,17 +28,15 @@ def main(workflow):
     )
 
     for coin in coins:
-        price = coin["price"]
-
         title = "{rank} · {symbol} [{price} USD]".format(
             rank=coin["rank"],
             symbol=coin["symbol"].upper(),
             name=coin["name"],
-            price=formatters.price(price),
+            price=formatters.price(coin["price"]),
         )
 
-        subtitle = "24h change: {change}".format(
-            change=formatters.percent(coin["change"]),
+        subtitle = "24H: {change}".format(
+            change=formatters.percent(coin["price_change"]),
         )
 
         workflow.new_item(
@@ -49,6 +47,16 @@ def main(workflow):
         ).set_icon_url(
             url=coin["img"],
             filename=f"{coin['name']}.png".lower(),
+        ).set_alt_mod(
+            subtitle="ATL: {price} / {change}".format(
+                price=formatters.price(coin["atl"]),
+                change=formatters.percent(coin["atl_change"]),
+            ),
+        ).set_cmd_mod(
+            subtitle="ATH: {price} / {change}".format(
+                price=formatters.price(coin["ath"]),
+                change=formatters.percent(coin["ath_change"]),
+            ),
         )
 
 

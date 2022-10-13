@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>808B9B88-6980-4FA1-844D-E46135557FE1</string>
+				<string>82A09523-8EB2-4E80-9377-D39E096E7341</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,7 +25,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>808B9B88-6980-4FA1-844D-E46135557FE1</string>
+				<string>82A09523-8EB2-4E80-9377-D39E096E7341</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -97,21 +97,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
 				<false/>
-				<key>clipboardtext</key>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
 				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>808B9B88-6980-4FA1-844D-E46135557FE1</string>
+			<string>82A09523-8EB2-4E80-9377-D39E096E7341</string>
 			<key>version</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -189,10 +191,10 @@ For example:
 			<key>ypos</key>
 			<real>15</real>
 		</dict>
-		<key>808B9B88-6980-4FA1-844D-E46135557FE1</key>
+		<key>82A09523-8EB2-4E80-9377-D39E096E7341</key>
 		<dict>
 			<key>xpos</key>
-			<real>280</real>
+			<real>270</real>
 			<key>ypos</key>
 			<real>115</real>
 		</dict>
@@ -229,7 +231,7 @@ For example:
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.6.0</string>
+	<string>1.7.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/fedecalendino/alfred-crypto-prices</string>
 </dict>
