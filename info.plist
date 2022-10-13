@@ -12,7 +12,32 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>808B9B88-6980-4FA1-844D-E46135557FE1</string>
+				<string>812AB4A3-6673-4A13-A3AD-0A88015282B3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>812AB4A3-6673-4A13-A3AD-0A88015282B3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D3995F06-BA5C-45DF-8B6C-F29907369AAB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>3D933C22-7A89-415F-B0F0-6F64C8C86AC8</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C8815C3E-CE6F-4649-B9BD-E3D96AFE61B6</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,7 +50,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>808B9B88-6980-4FA1-844D-E46135557FE1</string>
+				<string>812AB4A3-6673-4A13-A3AD-0A88015282B3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -97,21 +122,55 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
 				<false/>
-				<key>clipboardtext</key>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
 				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>D3995F06-BA5C-45DF-8B6C-F29907369AAB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>https.*</string>
+						<key>outputlabel</key>
+						<string>url</string>
+						<key>uid</key>
+						<string>3D933C22-7A89-415F-B0F0-6F64C8C86AC8</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>price</string>
+				<key>hideelse</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
-			<string>808B9B88-6980-4FA1-844D-E46135557FE1</string>
+			<string>812AB4A3-6673-4A13-A3AD-0A88015282B3</string>
 			<key>version</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -162,6 +221,25 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>C8815C3E-CE6F-4649-B9BD-E3D96AFE61B6</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Get current prices for cryptocurrencies 🪙
@@ -189,12 +267,26 @@ For example:
 			<key>ypos</key>
 			<real>15</real>
 		</dict>
-		<key>808B9B88-6980-4FA1-844D-E46135557FE1</key>
+		<key>812AB4A3-6673-4A13-A3AD-0A88015282B3</key>
 		<dict>
 			<key>xpos</key>
-			<real>280</real>
+			<real>250</real>
 			<key>ypos</key>
-			<real>115</real>
+			<real>135</real>
+		</dict>
+		<key>C8815C3E-CE6F-4649-B9BD-E3D96AFE61B6</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>215</real>
+		</dict>
+		<key>D3995F06-BA5C-45DF-8B6C-F29907369AAB</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>15</real>
 		</dict>
 		<key>E6378D7E-9B5C-41CD-BD2B-747DC6E2BFA9</key>
 		<dict>
@@ -229,7 +321,7 @@ For example:
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.6.0</string>
+	<string>1.7.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/fedecalendino/alfred-crypto-prices</string>
 </dict>
