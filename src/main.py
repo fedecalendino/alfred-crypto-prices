@@ -2,7 +2,8 @@ import sys
 
 from pyflow import Workflow
 
-from src import coingecko, formatters
+import coingecko
+import formatters
 
 
 def main(workflow):
