@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.github.fedecalendino.alfred-crypto-prices</string>
-	<key>category</key>
-	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>22BF0D5B-26C6-4E46-B6A7-1774D82A4DB3</key>
@@ -86,7 +84,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>#</string>
+				<string>{var:prices_keyword}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -96,7 +94,7 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Fetching prices from coingecko...</string>
 				<key>script</key>
 				<string>/usr/bin/python3 ./dist/main.py $@</string>
 				<key>scriptargtype</key>
@@ -104,9 +102,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Search for crypto prices or check your favorites</string>
 				<key>title</key>
-				<string></string>
+				<string>Crypto Prices</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -188,7 +186,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>@</string>
+				<string>{var:marketcap_keyword}</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -198,7 +196,7 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Fetching prices from coingecko...</string>
 				<key>script</key>
 				<string>/usr/bin/python3 ./dist/main.py marketcap</string>
 				<key>scriptargtype</key>
@@ -206,9 +204,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Search for crypto prices by marketcap</string>
 				<key>title</key>
-				<string></string>
+				<string>Crypto Marketcap Prices</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -298,6 +296,48 @@ For example:
 	</dict>
 	<key>userconfigurationconfig</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>#</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Keyword to search for crypto prices or check your favorites.</string>
+			<key>label</key>
+			<string>Crypto Prices Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>prices_keyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>@</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Keyword to search for crypto prices by marketcap.</string>
+			<key>label</key>
+			<string>Marketcap Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>marketcap_keyword</string>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
