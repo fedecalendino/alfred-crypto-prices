@@ -44,7 +44,6 @@ def main(workflow):
             title=title,
             subtitle=subtitle,
             arg=coin["price"],
-            uid=coin["id"],
         ).set_icon_url(
             url=coin["img"],
             filename=f"{coin['name']}.png".lower(),
