@@ -6,7 +6,7 @@ client = CoinGeckoAPI()
 def get_coins(*ids):
     for coin in client.get_coins_markets("usd", ids=",".join(ids), per_page=20):
         if not coin["market_cap_rank"]:
-            continue
+            coin["market_cap_rank"] = -1
 
         yield {
             "id": coin["id"],
