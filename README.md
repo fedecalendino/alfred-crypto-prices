@@ -5,7 +5,7 @@
 
 #### Configuration:
 
-![vars example](./img/screenshots/config.png)
+![vars example](screenshots/config.png)
 
 
 FAVORITES
@@ -25,17 +25,17 @@ For example:
 
 ##### • favorites (from configuration)
 
-![watchlist example](./img/screenshots/favorites.png)
+![watchlist example](screenshots/favorites.png)
 
 
 ##### • search
 
-![search example](./img/screenshots/search.png)
+![search example](screenshots/search.png)
 
 > note: the search works over the symbol of a coin, not its id.
 
 
 ##### • marketcap
 
-![marketcap example](./img/screenshots/marketcap.png)
+![marketcap example](screenshots/marketcap.png)
 
