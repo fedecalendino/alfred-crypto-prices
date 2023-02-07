@@ -10,18 +10,23 @@
 
 ##### Favorite cryptocurrencies
 
-You can find the identifiers at the end of any coingecko url: https://www.coingecko.com/en/coins/{id}
+This is a list of `api` ids provided by coingecko, to find yours follow these simple steps:
 
-For example:
+1. go to the page of any cryptocurrency in coingecko. 
+2. find the **info** section.
+3. copy the value under the `API id` field.
+4. paste the id into the alfred setting in a new line.
 
-  * ADA: https://www.coingecko.com/en/coins/cardano
-  * ATOM: https://www.coingecko.com/en/coins/cosmos
-  * BTC: https://www.coingecko.com/en/coins/bitcoin
-  * ETH: https://www.coingecko.com/en/coins/ethereum
+###### example:
+
+* **name**: BNB
+* **url**: https://www.coingecko.com/en/coins/bnb
+* **api id**: binancecoin
+
+![api id example](screenshots/api-id.png)
 
 
 #### Usage:
-
 
 ##### • favorites (from configuration)
 

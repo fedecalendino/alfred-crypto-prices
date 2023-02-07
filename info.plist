@@ -248,16 +248,22 @@
 ---
 
 
-FAVORITES
+### Favorite Cryptocurrencies
 
-You can find the identifiers at the end of any coingecko url: https://www.coingecko.com/en/coins/{id}
+This is a list of `api` ids provided by coingecko, to find yours follow these simple steps:
 
-For example:
+  1. go to the page of any cryptocurrency in coingecko.
+  2. find the **info** section.
+  3. copy the value under the `API id` field.
+  4. paste the id into the alfred setting in a new line.
 
-  * ADA: https://www.coingecko.com/en/coins/cardano
-  * ATOM: https://www.coingecko.com/en/coins/cosmos
-  * BTC: https://www.coingecko.com/en/coins/bitcoin
-  * ETH: https://www.coingecko.com/en/coins/ethereum</string>
+
+#### example:
+
+  * **name**: BNB
+  * **url**: https://www.coingecko.com/en/coins/bnb
+  * **api id**: binancecoin
+  * **screenshot**: [github.com](https://github.com/fedecalendino/alfred-crypto-prices/blob/main/screenshots/api-id.png)</string>
 	<key>uidata</key>
 	<dict>
 		<key>22BF0D5B-26C6-4E46-B6A7-1774D82A4DB3</key>
@@ -533,7 +539,7 @@ For example:
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.9.0</string>
+	<string>1.9.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/fedecalendino/alfred-crypto-prices</string>
 </dict>
