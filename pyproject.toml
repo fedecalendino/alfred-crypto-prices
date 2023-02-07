@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Crypto Prices"
-version = "1.8.4"
+version = "1.9.0"
 description = "Get current prices for cryptocurrencies"
 documentation = "https://github.com/fedecalendino/alfred-crypto-prices/blob/main/README.md"
 homepage = "https://github.com/fedecalendino/alfred-crypto-prices"

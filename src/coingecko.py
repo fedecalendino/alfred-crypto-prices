@@ -3,8 +3,10 @@ from pycoingecko import CoinGeckoAPI
 client = CoinGeckoAPI()
 
 
-def get_coins(*ids):
-    for coin in client.get_coins_markets("usd", ids=",".join(ids), per_page=20):
+def get_coins(*ids, currency: str = "usd"):
+    currency = currency.lower()
+
+    for coin in client.get_coins_markets(currency, ids=",".join(ids), per_page=20):
         if not coin["market_cap_rank"]:
             coin["market_cap_rank"] = -1
 
@@ -24,11 +26,11 @@ def get_coins(*ids):
         }
 
 
-def search(symbols: set = None) -> list:
+def search(symbols: set = None, currency: str = "usd") -> list:
     ids = []
 
     for coin in client.get_coins_list():
         if coin["symbol"] in symbols:
             ids.append(coin["id"])
 
-    return get_coins(*ids)
+    return get_coins(*ids, currency=currency)

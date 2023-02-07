@@ -8,16 +8,16 @@
 ![vars example](screenshots/config.png)
 
 
-FAVORITES
+##### Favorite cryptocurrencies
 
-The valid ids are on coingecko's urls: https://www.coingecko.com/en/coins/{id}
-
+You can find the identifiers at the end of any coingecko url: https://www.coingecko.com/en/coins/{id}
 
 For example:
 
   * ADA: https://www.coingecko.com/en/coins/cardano
   * ATOM: https://www.coingecko.com/en/coins/cosmos
-  * JUNO: https://www.coingecko.com/en/coins/juno-network
+  * BTC: https://www.coingecko.com/en/coins/bitcoin
+  * ETH: https://www.coingecko.com/en/coins/ethereum
 
 
 #### Usage:
@@ -26,6 +26,8 @@ For example:
 ##### • favorites (from configuration)
 
 ![watchlist example](screenshots/favorites.png)
+
+> note: results are sorted by the 24 percent change.
 
 
 ##### • search

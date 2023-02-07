@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.github.fedecalendino.alfred-crypto-prices</string>
+	<key>category</key>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>22BF0D5B-26C6-4E46-B6A7-1774D82A4DB3</key>
@@ -248,14 +250,14 @@
 
 FAVORITES
 
-The valid ids are on coingecko's urls: https://www.coingecko.com/en/coins/{id}
-
+You can find the identifiers at the end of any coingecko url: https://www.coingecko.com/en/coins/{id}
 
 For example:
 
   * ADA: https://www.coingecko.com/en/coins/cardano
   * ATOM: https://www.coingecko.com/en/coins/cosmos
-  * JUNO: https://www.coingecko.com/en/coins/juno-network</string>
+  * BTC: https://www.coingecko.com/en/coins/bitcoin
+  * ETH: https://www.coingecko.com/en/coins/ethereum</string>
 	<key>uidata</key>
 	<dict>
 		<key>22BF0D5B-26C6-4E46-B6A7-1774D82A4DB3</key>
@@ -342,6 +344,176 @@ For example:
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<string>USD</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>🇦🇪 AED (United Arab Emirates Dirham)</string>
+						<string>AED</string>
+					</array>
+					<array>
+						<string>🇦🇷 ARS (Argentine Peso)</string>
+						<string>ARS</string>
+					</array>
+					<array>
+						<string>🇦🇺 AUD (Australian Dollar)</string>
+						<string>AUD</string>
+					</array>
+					<array>
+						<string>🇧🇲 BMD (Bermudian Dollar)</string>
+						<string>BMD</string>
+					</array>
+					<array>
+						<string>🇧🇷 BRL (Brazilian Real)</string>
+						<string>BRL</string>
+					</array>
+					<array>
+						<string>🇨🇦 CAD (Canadian Dollar)</string>
+						<string>CAD</string>
+					</array>
+					<array>
+						<string>🇨🇭 CHF (Swiss Franc)</string>
+						<string>CHF</string>
+					</array>
+					<array>
+						<string>🇨🇱 CLP (Chilean Peso)</string>
+						<string>CLP</string>
+					</array>
+					<array>
+						<string>🇨🇳 CNY (Chinese Renminbi)</string>
+						<string>CNY</string>
+					</array>
+					<array>
+						<string>🇨🇿 CZK (Czech Koruna)</string>
+						<string>CZK</string>
+					</array>
+					<array>
+						<string>🇩🇰 DKK (Danish Krona)</string>
+						<string>DKK</string>
+					</array>
+					<array>
+						<string>🇪🇺 EUR (Euro)</string>
+						<string>EUR</string>
+					</array>
+					<array>
+						<string>🇬🇧 GBP (British Pound)</string>
+						<string>GBP</string>
+					</array>
+					<array>
+						<string>🇭🇰 HKD (Hong Kong Dollar)</string>
+						<string>HKD</string>
+					</array>
+					<array>
+						<string>🇭🇺 HUF (Hungarian Forint)</string>
+						<string>HUF</string>
+					</array>
+					<array>
+						<string>🇮🇩 IDR (Indonesian Rupiah)</string>
+						<string>IDR</string>
+					</array>
+					<array>
+						<string>🇮🇱 ILS (Israeli Shekel)</string>
+						<string>ILS</string>
+					</array>
+					<array>
+						<string>🇮🇳 INR (Indian Rupee)</string>
+						<string>INR</string>
+					</array>
+					<array>
+						<string>🇯🇵 JPY (Japanese Yen)</string>
+						<string>JPY</string>
+					</array>
+					<array>
+						<string>🇰🇷 KRW (South Korean Won)</string>
+						<string>KRW</string>
+					</array>
+					<array>
+						<string>🇲🇽 MXN (Mexican Peso)</string>
+						<string>MXN</string>
+					</array>
+					<array>
+						<string>🇲🇾 MYR (Malaysian Ringgit)</string>
+						<string>MYR</string>
+					</array>
+					<array>
+						<string>🇳🇬 NGN (Nigerian Naira)</string>
+						<string>NGN</string>
+					</array>
+					<array>
+						<string>🇳🇴 NOK (Norwegian Krona)</string>
+						<string>NOK</string>
+					</array>
+					<array>
+						<string>🇳🇿 NZD (New-Zealand Dollar)</string>
+						<string>NZD</string>
+					</array>
+					<array>
+						<string>🇵🇭 PHP (Philippines Peso)</string>
+						<string>PHP</string>
+					</array>
+					<array>
+						<string>🇵🇱 PLN (Polish Zloty)</string>
+						<string>PLN</string>
+					</array>
+					<array>
+						<string>🇷🇺 RUB (Russian Ruble)</string>
+						<string>RUB</string>
+					</array>
+					<array>
+						<string>🇸🇦 SAR (Saudi Riyal)</string>
+						<string>SAR</string>
+					</array>
+					<array>
+						<string>🇸🇪 SEK (Swedish Krona)</string>
+						<string>SEK</string>
+					</array>
+					<array>
+						<string>🇸🇬 SGD (Singapore Dollar)</string>
+						<string>SGD</string>
+					</array>
+					<array>
+						<string>🇹🇭 THB (Thai Baht)</string>
+						<string>THB</string>
+					</array>
+					<array>
+						<string>🇹🇷 TRY (Turkish Lira)</string>
+						<string>TRY</string>
+					</array>
+					<array>
+						<string>🇹🇼 TWD (Taiwan Dollar)</string>
+						<string>TWD</string>
+					</array>
+					<array>
+						<string>🇺🇦 UAH (Ukrainian Hryvnia)</string>
+						<string>UAH</string>
+					</array>
+					<array>
+						<string>🇺🇸 USD (United States Dollar)</string>
+						<string>USD</string>
+					</array>
+					<array>
+						<string>🇻🇳 VND (Vietnamese Dong)</string>
+						<string>VND</string>
+					</array>
+					<array>
+						<string>🇿🇦 ZAR (South African Rand)</string>
+						<string>ZAR</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Default fiat currency for conversions.</string>
+			<key>label</key>
+			<string>Currency</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>CURRENCY</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<string>bitcoin</string>
 				<key>required</key>
 				<true/>
@@ -353,7 +525,7 @@ For example:
 			<key>description</key>
 			<string>List of coingecko identifiers for coins (one per line).</string>
 			<key>label</key>
-			<string>FAVORITES</string>
+			<string>Favorite cryptocurrencies</string>
 			<key>type</key>
 			<string>textarea</string>
 			<key>variable</key>
@@ -361,7 +533,7 @@ For example:
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.8.4</string>
+	<string>1.9.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/fedecalendino/alfred-crypto-prices</string>
 </dict>

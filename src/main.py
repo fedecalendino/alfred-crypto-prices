@@ -12,15 +12,20 @@ def main(workflow):
 
     args = workflow.args
 
+    currency = workflow.env.get("CURRENCY", "USD")
+
     if not args:
         ids = workflow.env.get("FAVORITES", "").split("\n")
-        coins = coingecko.get_coins(*ids)
+        coins = coingecko.get_coins(*ids, currency=currency)
         sort_by = "price_change"
         sort_dir = "desc"
     elif args == ["marketcap"]:
-        coins = coingecko.get_coins()
+        coins = coingecko.get_coins(currency=currency)
     else:
-        coins = coingecko.search(set(map(lambda arg: arg.lower().strip(), args)))
+        coins = coingecko.search(
+            set(map(lambda arg: arg.lower().strip(), args)),
+            currency=currency,
+        )
 
     coins = sorted(
         coins,
@@ -29,11 +34,12 @@ def main(workflow):
     )
 
     for coin in coins:
-        title = "{rank} · {symbol} [{price} USD]".format(
+        title = "{rank} · {symbol} [{price} {currency}]".format(
             rank=coin["rank"],
             symbol=coin["symbol"].upper(),
             name=coin["name"],
             price=formatters.price(coin["price"]),
+            currency=currency.upper(),
         )
 
         subtitle = "24H: {change}".format(
