@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Crypto Prices"
-version = "1.8.3"
+version = "1.8.4"
 description = "Get current prices for cryptocurrencies"
 documentation = "https://github.com/fedecalendino/alfred-crypto-prices/blob/main/README.md"
 homepage = "https://github.com/fedecalendino/alfred-crypto-prices"
@@ -12,7 +12,7 @@ authors = [
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
-alfred-pyflow = "latest"
+alfred-pyflow = "0.3.3"
 pycoingecko = "^3.0.0"
 
 [tool.poetry.dev-dependencies]
