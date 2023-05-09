@@ -11,10 +11,9 @@ authors = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
-pycoingecko = "^3.0.0"
+python = ">=3.8,<3.12"
 alfred-pyflow = "^0.4.5"
-
+pycoingecko = "^3.0.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
